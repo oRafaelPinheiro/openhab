@@ -1,2 +1,2 @@
-Thing astro:sun:home    "Clima em Casa"         @ "Clima" [ geolocation="20.529298,-54.625168", interval=3600]
-Thing astro:moon:local  "Dados da Lua"          @ "Clima" [ geolocation="20.529298,-54.625168", interval=86400]
+Thing astro:sun:home    "Clima em Casa"         @ "Clima" [ geolocation="LAT,LONG", interval=3600]
+Thing astro:moon:local  "Dados da Lua"          @ "Clima" [ geolocation="LAT,LONG", interval=86400]
