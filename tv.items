@@ -1,4 +1,4 @@
-Group   gSalaTV          "TV Sala"          <screen>
+Group   gSalaTV             "TV Sala"               <screen>
 
 Dimmer	TV_Volume           "Volume [%s]"           <soundvolume>       (gSalaTV)   { channel="samsungtv:tv:sala:volume" }
 Switch	TV_Mute             "Mute"                  <soundvolume_mute>  (gSalaTV)   { channel="samsungtv:tv:sala:mute" }	
@@ -19,7 +19,4 @@ String  TV_ArtJson          "TV ArtJson [%s]"       <television>        (gSalaTV
 String  TV_ArtLabel         "TV ArtLabel [%s]"      <television>        (gSalaTV)   { channel="samsungtv:tv:sala:artLabel", autoupdate="false" }
 Image   TV_ArtImage         "TV ArtImage"           <television>        (gSalaTV)   { channel="samsungtv:tv:sala:artImage", autoupdate="false" }
 
-//Pode Tentar Passsar para TV_SourceApp
-//Internet, Netflix, Prime Video, YouTube
-
-
+//Pode Tentar Passsar para TV_SourceApp Internet, Netflix, Prime Video, YouTube
