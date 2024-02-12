@@ -1,1 +1,1 @@
-Thing ntp:ntp:local "NTP" @ "Clima" [hostname="0.pool.ntp.org", refreshInterval=60, refreshNtp=60, locale="" ,timeZone="America/Campo_Grande"]
+Thing ntp:ntp:local "NTP" @ "Clima" [hostname="YOUR_NTP", refreshInterval=60, refreshNtp=60, locale="" ,timeZone="your_timezone"]
