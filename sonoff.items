@@ -1,0 +1,20 @@
+//Grupos utilizados
+Group	ligarTudo          "Ligar Tudo"     <light>            [ "Lighting" ]
+Group	jardimCasa         "Jardim"         <light>            [ "Lighting" ]
+Group	varandaCasa        "Varanda"        <light>            [ "Lighting" ]
+Group	varandaFundo       "Fundo"          <light>            [ "Lighting" ]
+
+//Item que fará a atualização do status do interrutores caso OpenHab seja reiniciado, envia um msg mqtt com este tópico que é padrão de telemetria do código tasmotta
+Switch Atualizar "State Sonoff"  ["Switchable"] { init="ON" }
+
+//Sonoff 4CH
+String luz_arandelas_Reachable "Ligadas:"				<contactable>                          [ "Lighting" ] { channel="mqtt:topic:mosquitto:luzes_4ch:reachable" }
+Switch luz_var_fundo		   "Luz varanda fundo"		<light>       (varandaCasa,ligarTudo)  [ "Lighting" ] { channel="mqtt:topic:mosquitto:arandelas:luz_var_fundo" }
+Switch luz_var_leds	           "LED Natal"				<light>       (jardimCasa,ligarTudo)   [ "Lighting" ] { channel="mqtt:topic:mosquitto:arandelas:luz_var_leds" }
+Switch luz_var_frente		   "Luz varanda frente"	    <light>       (varandaCasa,ligarTudo)  [ "Lighting" ] { channel="mqtt:topic:mosquitto:arandelas:luz_var_frente" }
+Switch luz_arandelas		   "Arandelas"				<light>       (jardimCasa,ligarTudo)   [ "Lighting" ] { channel="mqtt:topic:mosquitto:arandelas:luz_arandelas" }
+
+//Sonoff Basics
+Switch sonoff_jardim		   "Jardim Frente"			<light>       (jardimCasa,ligarTudo)  [ "Lighting" ] { channel="mqtt:topic:mosquitto:jardim:sonoff_jardim" }
+Switch sonoff_corredor		   "Corredor Lateral"		<light>       (jardimCasa,ligarTudo)  [ "Lighting" ] { channel="mqtt:topic:mosquitto:jardim:sonoff_corredor" } 
+Switch sonoff_fundo	            "Varanda Fundo"	    	<light>       (varandaFundo,ligarTudo)[ "Lighting" ] { channel="mqtt:topic:mosquitto:fundo:sonoff_fundo" } 

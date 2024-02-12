@@ -1,0 +1,1 @@
+Thing samsungtv:tv:sala "TV" @ "Sala" [ hostName="192.168.0.80", port=8002, refreshInterval=1000, macAddress="8c:79:f5:44:0b:5f" ]

@@ -1,0 +1,21 @@
+Group Astro <sun_clouds> (Whg)
+
+//
+DateTime    Current_DateTime     "Hoje  [%tA, %1$tH:%1$tM, %1$td/%1$tm/%1$tY]"             <clock>  (Astro) {channel="ntp:ntp:local:dateTime"}
+Switch      Night_State          "Noite"                                                             (Astro)
+
+//astro:sun:home
+DateTime    Sunset_Time          "Pôr do Sol [%1$tH:%1$tM]"                                 <sun>    (Astro) {channel="astro:sun:home:set#start"}
+DateTime    Sunrise_Time         "Nascer do Sol [%1$tH:%1$tM]"                              <sun>    (Astro) {channel="astro:sun:home:rise#end"}
+String      Day_Phase            "Fase do Dia [MAP(astro.map):%s]"                                   (Astro) {channel="astro:sun:home:phase#name"}
+String      Season_Name          "Estação [MAP(astro.map):%s]"                                       (Astro) {channel="astro:sun:home:season#name"}
+String      Zodiac_Sign          "Zodíaco [MAP(astro.map):%s]"                              <zodiac> (Astro) {channel="astro:sun:home:zodiac#sign"}
+
+
+//astro:moon:local
+String      Moon_Phase           "Fase da Lua [MAP(astro.map):%s]"                          <moon>   (Astro) {channel="astro:moon:local:phase#name"}
+DateTime    Moon_Next_Full       "Próx Lua Cheia[%1$td/%1$tm/%1$tY, %1$tH:%1$tM Uhr]"       <moon>   (Astro) {channel="astro:moon:local:phase#full"}
+DateTime    Moon_Next_New        "Próx Lua Nova [%1$td/%1$tm/%1$tY, %1$tH:%1$tM Uhr]"       <moon>   (Astro) {channel="astro:moon:local:phase#new"}
+
+//
+String      Time_Of_Day          "[%s]"                                                   (Astro)

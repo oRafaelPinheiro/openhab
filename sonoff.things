@@ -1,0 +1,24 @@
+/*    Thing <binding_id>:<type_id>:<thing_id> "Label" @ "Location" [ <parameters> ] */
+
+Bridge mqtt:broker:mosquitto "Mosquitto" [ host="192.168.0.20", port=1883, secure=false, username="rpa", password="rpa" ]{
+    //Sonoff 4Ch
+    Thing topic arandelas "Externo" @ "Externo" {
+        Channels:
+            //Type string : reachable       "Ligada"              [ stateTopic="tele/luzes_4ch/LWT" ]
+            Type switch : luz_arandelas     "Arandelas Th"         [ stateTopic="stat/luzes_4ch/POWER4", commandTopic="cmnd/luzes_4ch/POWER4", on="ON", off="OFF" ]
+            Type switch : luz_var_frente    "Varanda Frente Th"    [ stateTopic="stat/luzes_4ch/POWER3", commandTopic="cmnd/luzes_4ch/POWER3", on="ON", off="OFF" ]
+            Type switch : luz_var_leds      "LED Natal Th"         [ stateTopic="stat/luzes_4ch/POWER2", commandTopic="cmnd/luzes_4ch/POWER2", on="ON", off="OFF" ]
+            Type switch : luz_var_fundo     "Varanda Fundo Th"     [ stateTopic="stat/luzes_4ch/POWER1", commandTopic="cmnd/luzes_4ch/POWER1", on="ON", off="OFF" ]
+    }
+    //Sonoffs Basics
+    Thing topic jardim "Jardim" @ "Externo" {
+        Channels:
+            Type switch : sonoff_corredor "Corredor Lateral Th"   [ stateTopic="stat/sonoff-corredor/POWER", commandTopic="cmnd/sonoff-corredor/POWER", on="ON", off="OFF" ]
+            Type switch : sonoff_jardim   "Jardim Frente Th"      [ stateTopic="stat/sonoff-jardim/POWER", commandTopic="cmnd/sonoff-jardim/POWER", on="ON", off="OFF" ]
+    }
+    //Sonoffs Basics
+    Thing topic fundo "Fundo" @ "Externo" {
+        Channels:
+            Type switch : sonoff_fundo "Edícula Fundo Th"   [ stateTopic="stat/sonoff_fundo/POWER", commandTopic="cmnd/sonoff_fundo/POWER", on="ON", off="OFF" ]
+    }
+}

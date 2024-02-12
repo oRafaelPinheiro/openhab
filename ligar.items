@@ -1,0 +1,12 @@
+//Items para regra de ligar automaticamente
+Group	gProgramacaoWochentage
+Switch	ligarSegunda		"segunda"		<switch>	(gProgramacaoWochentage)
+Switch	ligarTerca			"Terca"			<switch>	(gProgramacaoWochentage)
+Switch	ligarQuarta			"Quarta"		<switch>	(gProgramacaoWochentage)
+Switch	ligarQuinta			"Quinta"		<switch>	(gProgramacaoWochentage)
+Switch	ligarSexta			"Sexta"			<switch>	(gProgramacaoWochentage)
+Switch	ligarSabado			"Sabado"		<switch>	(gProgramacaoWochentage)
+Switch	ligarDomingo		"Domingo"		<switch>	(gProgramacaoWochentage)
+String	horarioProgramado	"Programação [%s]"
+Number	horaProgramada		"Hora [%d]"		<time>		(gProgramacaoTempo)
+Number	minutoProgramado	"Minuto [%d]"	<time>		(gProgramacaoTempo)

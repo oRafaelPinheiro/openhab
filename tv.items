@@ -1,0 +1,25 @@
+Group   gSalaTV          "TV Sala"          <screen>
+
+Dimmer	TV_Volume           "Volume [%s]"           <soundvolume>       (gSalaTV)   { channel="samsungtv:tv:sala:volume" }
+Switch	TV_Mute             "Mute"                  <soundvolume_mute>  (gSalaTV)   { channel="samsungtv:tv:sala:mute" }	
+String	TV_SourceName       "Source Name [%s]"                          (gSalaTV)   { channel="samsungtv:tv:sala:sourceName" }
+Number	TV_SourceId         "Source Id [%s]"                            (gSalaTV)   { channel="samsungtv:tv:sala:sourceId" }	
+Number	TV_Channel          "Channel [%s]"                              (gSalaTV)   { channel="samsungtv:tv:sala:channel" }
+Switch  TV_ArtMode          "Art Mode [%s]"          <television>       (gSalaTV)   { channel="samsungtv:tv:sala:artMode" }
+String	TV_ProgramTitle     "Program Title [%s]"                        (gSalaTV)   { channel="samsungtv:tv:sala:programTitle" }
+String	TV_ChannelName      "Channel Name [%s]"                         (gSalaTV)   { channel="samsungtv:tv:sala:channelName" }
+String	TV_Url              "URL"                                       (gSalaTV)   { channel="samsungtv:tv:sala:url" }
+Switch	TV_Power            "Power"                                     (gSalaTV)   { channel="samsungtv:tv:sala:power" }
+String  TV_SourceApp        "Source App"                                (gSalaTV)   { channel="samsungtv:tv:sala:sourceApp" }
+Switch  TV_StopBrowser      "TV Stop Browser [%s]"  <television>        (gSalaTV)   { channel="samsungtv:tv:sala:stopBrowser", autoupdate="false" }
+String  TV_KeyCode          "TV Control [%s]"                           (gSalaTV)   { channel="samsungtv:tv:sala:keyCode", autoupdate="false"}
+
+/* New artMode Channels for Frame TV */
+String  TV_ArtJson          "TV ArtJson [%s]"       <television>        (gSalaTV)   { channel="samsungtv:tv:sala:artJson", autoupdate="false" }
+String  TV_ArtLabel         "TV ArtLabel [%s]"      <television>        (gSalaTV)   { channel="samsungtv:tv:sala:artLabel", autoupdate="false" }
+Image   TV_ArtImage         "TV ArtImage"           <television>        (gSalaTV)   { channel="samsungtv:tv:sala:artImage", autoupdate="false" }
+
+//Pode Tentar Passsar para TV_SourceApp
+//Internet, Netflix, Prime Video, YouTube
+
+

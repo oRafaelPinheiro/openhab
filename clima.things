@@ -1,0 +1,4 @@
+Bridge openweathermap:weather-api:api "OpenWeatherMap Account"  [apikey="50e2deb1f1f29a2a73aedd5a203987ec", refreshInterval=30, language="pt"] {
+    Thing weather-and-forecast  casa "Previsão"  @ "Clima"      [location="-20.4428, -54.6464", forecastHours=120, forecastDays=0]
+    Thing uvindex               casa "Indice UV" @ "Clima"      [location="-20.4428, -54.6464", forecastDays=7]
+}

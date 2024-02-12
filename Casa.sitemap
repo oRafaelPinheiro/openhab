@@ -1,0 +1,139 @@
+sitemap casa label="Casa"
+{
+    Frame {
+        Text item=Time_Of_Day icon="calendar" {
+            Frame label="Agora" {
+                //Switch item=Night_State 			    mappings=[OFF="Dia", ON="NOITE"]
+                Text item=Day_Phase         icon="sunmoon"
+                Text item=Sunrise_Time      icon="sunrise"      //visibility=[Night_State == ON]
+                Text item=Sunset_Time       icon="sunset"       //visibility=[Night_State == OFF]
+                Text item=Zodiac_Sign       icon="zodiac"
+                Text item=Moon_Phase        icon="phases-moon"
+                Text item=Moon_Next_Full    icon="full-moon"
+                    visibility=[
+                        Moon_Phase == WAXING_CRESCENT,
+                        Moon_Phase == FIRST_QUARTER,
+                        Moon_Phase == WAXING_GIBBOUS,
+                        Moon_Phase == FULL]
+
+                Text item=Moon_Next_New     icon="new-moon"
+                    visibility=[
+                        Moon_Phase == WANING_GIBBOUS,
+                        Moon_Phase == THIRD_QUARTER,
+                        Moon_Phase == WANING_CRESCENT,
+                        Moon_Phase == NEW]
+            }
+            Frame label="Previsão do Tempo"{
+                Text item=localStationId
+                Text item=localStationName
+                Mapview item=localStationLocation
+            }
+            Frame label="Clima Atual Local" {
+                
+                Text item=localCurrentCondition
+                Image item=localCurrentConditionIcon
+                Text item=localCurrentTemperature
+                Text item=localCurrentApparentTemperature
+                Text item=localCurrentHumidity
+                Text item=localCurrentWindSpeed
+                Text item=localCurrentCloudiness
+                Text item=localCurrentRainVolume
+                Text item=localCurrentVisibility
+            }
+            Frame label="Índice UV" {
+                Text item=localCurrentUVIndexTimestamp
+                Text item=localCurrentUVIndex
+            }
+        }
+    }//Fim Frame
+
+    Frame label="Grupos"
+    {
+        Switch item=ligarTudo     mappings=[ON="ON",OFF="OFF"]
+        Switch item=varandaCasa   mappings=[ON="ON",OFF="OFF"]
+        Switch item=varandaFundo  mappings=[ON="ON",OFF="OFF"]
+        Switch item=jardimCasa    mappings=[ON="ON",OFF="OFF"]
+    }//Fim Frame
+
+    Frame label="Luzes Casa"
+    {
+        Switch item=sonoff_jardim
+        Switch item=luz_arandelas
+        Switch item=luz_var_frente
+        Switch item=luz_var_fundo
+        Switch item=sonoff_fundo
+        Switch item=sonoff_corredor
+        Switch item=luz_var_leds
+    }//Fim Frame
+
+    /*
+    Frame label="TVs" {
+        Text label="SALA" icon="tv" {
+            //Funciona
+            Setpoint    item=TV_Volume              minValue=0 maxValue=100 step=2
+            Slider      item=TV_Volume        	    label="Volume [%d]"
+            Switch      item=TV_Mute          	    label="Mudo"                mappings=[ON="ON", OFF="OFF"]
+            Switch      item=TV_Power			    label="Ligado"              mappings=[ON="ON", OFF="OFF"]
+            Switch      item=TV_ArtMode                                         mappings=[ON="ON", OFF="OFF"]
+            
+            Switch      item=TV_StopBrowser                                     mappings=[ON="Stop", OFF="Quit"]
+            Switch      item=TV_KeyCode       	    label="Key Code [%d]"       mappings=[KEY_HOME="Home", KEY_6="GLOBO", KEY_SOURCE="SOURCE", KEY_8="SBT", KEY_11="RECORD"]
+            
+            Text        item=TV_SourceApp           label="Aplicativo [%s]"     mappings=["Netflix"="Netflix", "Apple TV"="Apple TV", "Disney+"="Disney+", "Youtube"="Youtube", "Internet"="Internet", "Exit"="Exit"]
+            Text        item=TV_SourceName    	    label="Source Name [%s]"    mappings=[HDMI1="HDMI 1", HDMI2="HDMI 2", HDMI3="HDMI 3", HDMI4="HDMI 4"]
+            Text        item=TV_Channel       	    label="Canal [%s]"
+            Text        item=TV_ProgramTitle  	    label="Program Title [%s]"
+            Text        item=TV_ChannelName   	    label="Channel Canal [%s]" 
+            Text        item=TV_SourceId            label="SourceId [%s]"
+            Text        item=TV_Url                 label="URL [%s]"
+
+            Switch item=TV_App label="Slideshow" mappings=["shuffleslideshow,1440"="shuffle 1 day","suffleslideshow,3"="shuffle 3 mins","slideshow,1440"="slideshow 1 day","slideshow,off"="Off"]
+            Text item=TV_App
+            Text item=TV_ArtLabel
+            Switch item=TV_ArtLabel mappings=["MY_F0018"="Millie","MY_F0019"="Cottage","MY_F0028"="High park","MY_F0038"="Vacation","SAM-S0611"="Fosilized Wood"]
+            Text item=TV_ArtJson
+            Switch item=TV_ArtJson mappings=["{\"request\":\"get_artmode_status\"}"="Get Art Status","get_content_list"="Get Art List"]
+            Image item=TV_ArtImage visibility=[TV_ArtImage!=NULL]
+        }
+	}//Fim Frame*/
+
+    Frame label="Programação Lampadas" {
+        Text item=horarioProgramado icon="time" {
+            Frame label="Tempo" {
+                Setpoint item=horaProgramada minValue=0 maxValue=23 step=1
+                Setpoint item=minutoProgramado minValue=0 maxValue=55 step=2
+            }
+            Frame label="Dias da Semana" {
+                Switch item=ligarSegunda
+                Switch item=ligarTerca
+                Switch item=ligarQuarta
+                Switch item=ligarQuinta
+                Switch item=ligarSexta
+                Switch item=ligarSabado
+                Switch item=ligarDomingo
+            }
+        }
+	}//Fim Frame
+
+    /*
+    Text item=SpeedtestSummary {
+        Frame label="Ergebnisse" {
+            Text item=SpeedtestResultDown
+            Text item=SpeedtestResultUp
+            Text item=SpeedtestResultPing
+        }
+        // Globale Steuerung für Betriebszustände (An-/Abwesenheit-bedingte Steuerungen)
+        Frame label="Steuerung" {
+            Text item=SpeedtestResultDate
+            Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
+            Switch item=SpeedtestRerun mappings=[ON="Start"]
+        }
+        Frame label="Statistik" { //TODO dokumentieren: icon wird nicht angezeigt
+            Text label="" icon="speedtest_analytics8"
+            //Image label="Speedtest" refresh=60000
+            //    url="http://192.168.11.230:3000/render/dashboard-solo/db/w66a?panelId=5&width=700&height=350&from=now-48h&to=now"
+        }
+    }*/
+
+
+}

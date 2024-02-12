@@ -1,0 +1,19 @@
+String localStationId                                     "ID [%s]"                                    <keyring>       { channel="openweathermap:weather-and-forecast:api:casa:station#id" }
+String localStationName                                   "Nome da Estação [%s]"                       <keyring>       { channel="openweathermap:weather-and-forecast:api:casa:station#name" }
+Location localStationLocation                             "Localização [%2$s°N %3$s°E]"                <weather_map>   { channel="openweathermap:weather-and-forecast:api:casa:station#location" }
+
+//Clima Atual Local
+String localCurrentCondition                               "Condições Atuais [%s]"                     <sun_clouds>    { channel="openweathermap:weather-and-forecast:api:casa:current#condition" }
+Image localCurrentConditionIcon                            "Icon"                                                      { channel="openweathermap:weather-and-forecast:api:casa:current#icon" }
+Number:Temperature localCurrentTemperature                 "Temperatura Atual [%.1f %unit%]"           <temperature>   { channel="openweathermap:weather-and-forecast:api:casa:current#temperature" }
+Number:Temperature localCurrentApparentTemperature         "Sensação Térmica [%.1f %unit%]"            <temperature>   { channel="openweathermap:weather-and-forecast:api:casa:current#apparent-temperature" }
+Number:Dimensionless localCurrentHumidity                  "Humidade [%d %unit%]"                      <humidity>      { channel="openweathermap:weather-and-forecast:api:casa:current#humidity" }
+Number:Speed localCurrentWindSpeed                         "Velocidade do Vento [%.1f km/h]"           <wind>          { channel="openweathermap:weather-and-forecast:api:casa:current#wind-speed" }
+Number:Angle localCurrentWindDirection                     "Direção do Vento [%d %unit%]"              <wind>          { channel="openweathermap:weather-and-forecast:api:casa:current#wind-direction" }
+Number:Dimensionless localCurrentCloudiness                "Nuvens [%d %unit%]"                        <clouds>        { channel="openweathermap:weather-and-forecast:api:casa:current#cloudiness" }
+Number:Length localCurrentRainVolume                       "Volume de Chuva [%.1f %unit%]"             <rain>          { channel="openweathermap:weather-and-forecast:api:casa:current#rain" }
+Number:Length localCurrentVisibility                       "Visibilidade [%.1f km]"                    <visibility>    { channel="openweathermap:weather-and-forecast:api:casa:current#visibility" }
+
+//Índice UV
+DateTime localCurrentUVIndexTimestamp                      "Data última medição [%1$tY-%1$tm-%1$td]"   <time>          { channel="openweathermap:uvindex:api:casa:current#time-stamp" }
+Number localCurrentUVIndex                                 "Índice UV atual [%d]"                                      { channel="openweathermap:uvindex:api:casa:current#uvindex" }
