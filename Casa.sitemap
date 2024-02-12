@@ -57,23 +57,22 @@ sitemap casa label="Casa"
 
     Frame label="Luzes Casa"
     {
-        Switch item=sonoff_jardim
-        Switch item=luz_arandelas
-        Switch item=luz_var_frente
-        Switch item=luz_var_fundo
-        Switch item=sonoff_fundo
-        Switch item=sonoff_corredor
-        Switch item=luz_var_leds
+        Switch item=sonoff_item
+        Switch item=sonoff_item
+        Switch item=sonoff_item
+        Switch item=sonoff_item
+        Switch item=sonoff_item
+        Switch item=sonoff_item
+        Switch item=sonoff_item
     }//Fim Frame
 
-    /*
     Frame label="TVs" {
         Text label="SALA" icon="tv" {
             //Funciona
             Setpoint    item=TV_Volume              minValue=0 maxValue=100 step=2
             Slider      item=TV_Volume        	    label="Volume [%d]"
             Switch      item=TV_Mute          	    label="Mudo"                mappings=[ON="ON", OFF="OFF"]
-            Switch      item=TV_Power			    label="Ligado"              mappings=[ON="ON", OFF="OFF"]
+            Switch      item=TV_Power		    label="Ligado"              mappings=[ON="ON", OFF="OFF"]
             Switch      item=TV_ArtMode                                         mappings=[ON="ON", OFF="OFF"]
             
             Switch      item=TV_StopBrowser                                     mappings=[ON="Stop", OFF="Quit"]
@@ -86,16 +85,8 @@ sitemap casa label="Casa"
             Text        item=TV_ChannelName   	    label="Channel Canal [%s]" 
             Text        item=TV_SourceId            label="SourceId [%s]"
             Text        item=TV_Url                 label="URL [%s]"
-
-            Switch item=TV_App label="Slideshow" mappings=["shuffleslideshow,1440"="shuffle 1 day","suffleslideshow,3"="shuffle 3 mins","slideshow,1440"="slideshow 1 day","slideshow,off"="Off"]
-            Text item=TV_App
-            Text item=TV_ArtLabel
-            Switch item=TV_ArtLabel mappings=["MY_F0018"="Millie","MY_F0019"="Cottage","MY_F0028"="High park","MY_F0038"="Vacation","SAM-S0611"="Fosilized Wood"]
-            Text item=TV_ArtJson
-            Switch item=TV_ArtJson mappings=["{\"request\":\"get_artmode_status\"}"="Get Art Status","get_content_list"="Get Art List"]
-            Image item=TV_ArtImage visibility=[TV_ArtImage!=NULL]
         }
-	}//Fim Frame*/
+	}//Fim Frame
 
     Frame label="Programação Lampadas" {
         Text item=horarioProgramado icon="time" {
@@ -114,26 +105,4 @@ sitemap casa label="Casa"
             }
         }
 	}//Fim Frame
-
-    /*
-    Text item=SpeedtestSummary {
-        Frame label="Ergebnisse" {
-            Text item=SpeedtestResultDown
-            Text item=SpeedtestResultUp
-            Text item=SpeedtestResultPing
-        }
-        // Globale Steuerung für Betriebszustände (An-/Abwesenheit-bedingte Steuerungen)
-        Frame label="Steuerung" {
-            Text item=SpeedtestResultDate
-            Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
-            Switch item=SpeedtestRerun mappings=[ON="Start"]
-        }
-        Frame label="Statistik" { //TODO dokumentieren: icon wird nicht angezeigt
-            Text label="" icon="speedtest_analytics8"
-            //Image label="Speedtest" refresh=60000
-            //    url="http://192.168.11.230:3000/render/dashboard-solo/db/w66a?panelId=5&width=700&height=350&from=now-48h&to=now"
-        }
-    }*/
-
-
 }
